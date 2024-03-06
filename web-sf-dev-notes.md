@@ -39,8 +39,9 @@ OPTIONS: requests information about the possible options available regarding a r
 		- If curl is used with the --verbose flag (or -v), the output contains also request and response details, including the headers. 
 	- Use `Ctrl+Shift+I` to open "Developer tools".
 	 
-
-
+* Client-server model (or client-server architecture), which is at the core of all web applications. In client-server model, a server is responsible for hosting and providing resources and services to one or more clients.
+	- While servers share their resources, clients do not.
+	- Note that the a server can also act as a client. As an example, when a web server connects to a database server, the web server is a client, and the database server is the server.
 
 
 
