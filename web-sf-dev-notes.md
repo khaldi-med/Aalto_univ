@@ -8,7 +8,7 @@
 
 * When a computer sends a message, e.g. a file, to another computer using the TCP-protocol, the data is divided into packets. Each packet contains a small header, up to 60 bytes, and content, up to 65 kilobytes. The header contains information about the sender and the receiver (IP-addresses), a number indicating the order of the particular packet, a checksum of the content, and a few other values.
 
-* In summary, the responsibility of the TCP-protocol is to verify that the message is received, and that the content of the message is received correctly.
+* In summary,qthe responsibility of the TCP-protocol is to verify that the message is received, and that the content of the message is received correctly.
 
 * URIs (Uniform Resource Identifier)
 
@@ -41,9 +41,13 @@ OPTIONS: requests information about the possible options available regarding a r
 	 
 * Client-server model (or client-server architecture), which is at the core of all web applications. In client-server model, a server is responsible for hosting and providing resources and services to one or more clients.
 	- While servers share their resources, clients do not.
-	- Note that the a server can also act as a client. As an example, when a web server connects to a database server, the web server is a client, and the database server is the server.
+	- Note that the a server can also act as a client.
+ As an example, when a web server connects to a database server, the web server is a client, and the database server is the server.
 
-
+* deno run --allow-net --watch <file.js>
+* deno fmt file.js 
+* deno lint file.js
+*  
 
 
 
