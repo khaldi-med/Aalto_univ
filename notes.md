@@ -47,10 +47,30 @@ OPTIONS: requests information about the possible options available regarding a r
 * deno run --allow-net --watch <file.js>
 * deno fmt file.js 
 * deno lint file.js
-*  
+  
+
+* **Routing** means mapping paths to functions.
+- A **route** is a mapping from a method-path -combination to a function.
 
 
+* Middlewares are functions that are executed before the actual request handler.
 
+* Software frameworks are platforms for developing software applications.
+
+* When comparing frameworks with libraries, one particular aspect of frameworks is that the flow of execution, when using frameworks, is handled by the framework. The developer adds functionality that can be "plugged in" to the framework.
+
+* Web frameworks are a specific category of software frameworks, created for developing web software applications.
+- Web frameworks are software frameworks for developing web applications.
+
+* Deno is not a framework. One good way of looking at Deno would be to think of it as a platform for software development.
+
+* It is also possible to define non-conventional (and non-existing) methods. This is done using the on method. 
+	- app.on("peek", "/", (c) => c.text("Nothing to see here."));	
+
+* The path and method of a request are also included in a req property of the context. 
+	- `` app.get("*", (c) => c.text(`${c.req.method} ${c.req.path}`));``
+
+* 
 
 
 
