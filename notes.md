@@ -70,9 +70,10 @@ OPTIONS: requests information about the possible options available regarding a r
 * The path and method of a request are also included in a req property of the context. 
 	- `` app.get("*", (c) => c.text(`${c.req.method} ${c.req.path}`));``
 
-* 
+* Modern JavaScript features a ?? operator that can be used to simplify the above code. The ?? operator returns the value of the right-hand side if the left-hand side is null or undefined.
+	- ``  let name = c.req.query("name") ?? "Jane"``
 
-
+* Path variables are a way to define parts of a path as variables, where values from the parts can then be used in the application.
 
 
 
