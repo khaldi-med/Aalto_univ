@@ -75,6 +75,13 @@ OPTIONS: requests information about the possible options available regarding a r
 
 * Path variables are a way to define parts of a path as variables, where values from the parts can then be used in the application.
 
+* Web frameworks are libraries that help in creating web applications. They provide a structure for the application and often also provide tools for common tasks, such as handling requests and responses.
+
+* Request parameters are available through the query method of the req attribute of the context object c.
+	- app.get("/", (c) => c.text(`Name: ${c.req.query("name")}`));
+
+* Path variables are available through the param method of the req attribute of the context object c.
+	- app.get("/:id", (c) => c.text(`Id: ${c.req.param("id")}`));
 
 
 
