@@ -84,4 +84,71 @@ OPTIONS: requests information about the possible options available regarding a r
 	- app.get("/:id", (c) => c.text(`Id: ${c.req.param("id")}`));
 
 
+* deployctl deploy --token=<...> --project=<name> --> to deploy a project
+
+* deployctl deploy **--prod** --token=<...> --project=<name> --> to update and set to proudaction mode a project
+
+* To persist data -- that is, to store it in a way that it doesn't disappear between server restarts -- we need to store the data in a physical format (i.e. on a hard-drive). Here is where databases come into play.
+
+* Key-value stores are a type of database that store data in a key-value format.
+
+* When working with key-value stores (and more any functionality that involves waiting for resources), we typically utilize asynchronous functions. Asynchronous functions allow waiting for the execution of the function, while potentially providing other processes the possibility to execute in the meanwhile.
+
+* In JavaScript, the keyword async is used to define asynchronous functions, and the keyword await is used for waiting for the execution of an asynchronous function.
+
+* The relevant methods for working with the key-value store are get, set, and delete -- all of them are asynchronous.
+
+* deno run --allow-net --unstable --watch
+
+```
+The get method is used for retrieving a value.
+It takes a list with a string as a parameter. The string is the key that is used. The following example outlines opening the key value store and retrieving the value for the key count.
+
+const kv = await Deno.openKv();
+const count = await kv.get(["count"]);
+The value returned by get is an object, which contains a property value that has the actual value stored into the key value database.
+
+In practice, however, it is possible that the value is not found. In this case, the value within the returned object is null. Falling for a default value -- say 0 -- can be done with the ?? operator.
+
+const kv = await Deno.openKv();
+const count = await kv.get(["count"]);
+let value = count.value ?? 0;
+console.log(value);
+```
+
+```
+The set method is used for setting a value. It takes two parameters: (1) a list containing a string that indicates the name of the key, and (2) the value that is to be stored. The following example outlines opening the key value store and setting the value 0 for the key count.
+
+const kv = await Deno.openKv();
+await kv.set(["count"], 0);
+If the key-value storage already contains a value for the given key pair, the value will be overridden with the new value.
+```
+
+```
+Deleting a value
+The delete method is used for deleting a value. Similar to get, it takes a list with a string as a parameter, where the string is the key. The following example outlines the use of the delete method. The example would remove the value for the key count.
+
+const kv = await Deno.openKv();
+await kv.delete(["count"]);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
