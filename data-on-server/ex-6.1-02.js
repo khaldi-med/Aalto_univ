@@ -1,19 +1,8 @@
-import { Hono } from "https://deno.land/x/hono@v3.7.4/mod.ts";
-import * as store from "./store.js"
+let store = 0;
 
-const app = new Hono();
-
-
-app.get("/", (c) => {
-    const isEmpty = c.req.query("store")
-    if(isEmpty){
-        store.setStore(isEmpty)
-    }
-
-    return c.text(`Store: ${store.getStore()}`)
-    
-});
+const getStore = () => store;
+const setStore = (s) => store = s;
 
 
-export default app;
+export { setStore, getStore };
 
