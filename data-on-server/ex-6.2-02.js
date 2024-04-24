@@ -1,11 +1,11 @@
 const getVisit = async () =>{
     const kv = await Deno.openKv();
     const visits = await kv.get(["visits"]);
-    return visits.value ?? "Hello world!";
+    return visits.value ?? 0;
 }
 
 const incrementVisit = async () =>{
-    let visits = await getVisit();
+    let visits = await Deno.getVisit();
     visits++;
     await setVisit(visits);
 }

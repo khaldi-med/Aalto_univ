@@ -1,22 +1,19 @@
 import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
 
-import * as visits from "./visits.js"
-
+import * as visits from "./visits.js";
 
 const app = new Hono();
 
-app.get("/", async (c) => {
-    
-    let answer = c.text(await visits.getVisit());
-
-    if (await c.req.query("visits")) {
-        answer = c.text(`Visit count: ${await visits.getVisit()}`);
-    }
-
-    return answer;
+app.get("/visits", async (c) => {
+  let answer = c.text(`Visit count: ${await visits.getVisit()}`);
+  return answer;
 });
 
+app.get("/", async (c) => {
+  await visits.incrementVisit();
+  let answer = "Hello world!";
+
+  return await answer;
+});
 
 export default app;
-
-
