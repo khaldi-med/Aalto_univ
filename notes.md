@@ -132,13 +132,16 @@ const kv = await Deno.openKv();
 await kv.delete(["count"]);
 ```
 
-``` 
-Architecture: Layered Architecture
-Learning objectives
-You know the concept layered architecture.
-You know how to divide an application into layers.
-The term layered architecture refers to organizing code into layers that each have their own responsibility within the application. The term layer refers to a group of related functionality that is separated from other functionality in the application. The term architecture refers to the overall structure of the application.
-```
+### Architecture: Layered Architecture
+* The term layered architecture refers to organizing code into layers that each have their own responsibility within the application. 
+
+* The term layer refers to a group of related functionality that is separated from other functionality in the application. 
+
+* The term architecture refers to the overall structure of the application
+
+* **A layered architecture that consists of three layers: a presentation layer, a business logic layer, and a database access layer.**
+
+* 
 
 
  
