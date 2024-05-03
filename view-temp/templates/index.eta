@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <h1>The heading!</h1>
+    <p>The content!</p>
+    <p>The count: <%= it.count %>!</p>
+  </body>
+</html>
