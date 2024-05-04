@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <h1>
+        <%= it.title %>
+    </h1>
+  </body>
+</html>
