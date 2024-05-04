@@ -141,8 +141,11 @@ await kv.delete(["count"]);
 
 * **A layered architecture that consists of three layers: a presentation layer, a business logic layer, and a database access layer.**
 
-* 
 
+#### View Templates
+
+* deno run --allow-net --allow-read --watch app.js
+* 
 
  
 
