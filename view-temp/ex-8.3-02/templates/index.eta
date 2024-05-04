@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+  <% if (it.value > 0) { %>
+    <h1>Value for <%= it.object %>: <%= it.value %> (positive)</h1>
+  <% } else if (it.value < 0){ %>
+    <h1>Value for <%= it.object %>: <%= it.value %> (negative)</h1>
+  <% } else { %>
+    <h1>Value for <%= it.object %>: <%= it.value %> (zero)</h1>
+  <% } %>
+  </body>
+</html>  
