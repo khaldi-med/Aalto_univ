@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+  <% if (it.name === "ADMIN") { %>
+    <h1>Hello boss!</h1>
+  <% } else { %>
+    <h1>Hello <%= it.name %>!</h1>
+  <% } %>
+  </body>
+</html>
