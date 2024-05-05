@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <h1>Some Roman emperors</h1>
+    <ul>
+      <% it.emperors.forEach((emperor, yearB) => { %>
+        <li><%= emperor.name %> (<%= emperor.yearOfBirth %>) </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
