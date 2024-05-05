@@ -7,13 +7,13 @@ const app = new Hono();
 
 let visitCount = 0;
 
-const data = {
+app.get("/count", (c) => {
+  visitCount++;
+ const data = {
   count: visitCount,
 };
 
-app.get("/count", (c) => {
-  visitCount++;
-  return c.html(eta.render("index.eta", data))
+ return c.html(eta.render("index.eta", data))
 });
 
 export default app;

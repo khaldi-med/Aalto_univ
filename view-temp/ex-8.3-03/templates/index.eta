@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <h1>Vegetables!</h1>
+    <ul>
+      <% it.vegetables.forEach((veggie) => { %>
+        <li><%= veggie %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

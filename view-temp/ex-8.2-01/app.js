@@ -6,7 +6,7 @@ const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 const app = new Hono();
 
 const data = {
-  title: "Hello world!",
+  title: "Hello view templates!",
 };
 
 app.get("/", (c) => c.html(eta.render("index.eta", data)));
