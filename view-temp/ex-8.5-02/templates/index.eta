@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+     <h1>TODO</h1>
+    <ul>
+    <% it.todos.forEach((row) => { %>
+        <li><%= row.name %></li>
+    <% }); %>
+    </ul>
+  </body>
+</html>
