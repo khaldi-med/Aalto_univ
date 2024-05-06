@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Layouts!</title>
+  </head>
+  <body>
+    <%~ it.body %>
+  </body>
+</html>
