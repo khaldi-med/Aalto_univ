@@ -145,10 +145,26 @@ await kv.delete(["count"]);
 #### View Templates
 
 * deno run --allow-net --allow-read --watch app.js
-* 
 
+* The nullish coalescing operator **??** : returns the value on the left-hand side of the operator if the value is not null or undefined, and the value on the right-hand side of the operator if the value on the left-hand side is null or undefined. 
+	- Email address: <%= it.email ?? "Unknown" %\>!
+
+#### Forms and data
+
+* The form element form has two attributes: method and action. The method describes the used HTTP method (either POST or GET), while the action describes the path to which the data is sent. If the method attribute is missing, GET is used by default. Similarly, if the action attribute is missing, the current address and path is used by default.
+	
+ * Input elements are created using the input element. The input element has a number of attributes, of which the most important ones are type, id, and name. The type attribute describes the type of the input field, while the id and name attributes are used for identifying the input field. The id attribute is used for referring to the input field from other elements, while the name attribute is used for identifying the input field when the form is submitted.
+
+* The label element is used for referring to an input field within the form and for adding a textual description for the input field. The attribute for of the label element tells which input field the label refers to. The value for the attribute for should be the same as the value of the id attribute of the input field that the label refers to. 
  
-
+* a form can contain multiple input fields. The type of the input field can be controlled using the type attribute. There are over 20 different input types:
+	- email
+	- text
+	- password
+	- checkbox
+	- date
+	- number
+	- url 
 
 
 
