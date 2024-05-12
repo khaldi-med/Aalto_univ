@@ -5,12 +5,6 @@ const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 
 const app = new Hono();
 
-const data = {
-  vegetables: ["Carrot", "Kale", "Broccoli", "Zombie"],
-};
-
-app.get("/", (c) => {
-  return c.html(eta.render("index.eta", data));
-});
+app.get("/", (c) => c.html(eta.render("index.eta")));
 
 export default app;
