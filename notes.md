@@ -14,40 +14,40 @@
 
 * The most common status code is 200, which indicates that everything went well.
 
-The status codes can be divided into five high-level categories which are as follows.
+		The status codes can be divided into five high-level categories which are as follows.
 
-```
-1**: Information messages (e.g. 100 "Continue")
-2**: Succesful events (e.g. 200 "OK")
-3**: Additional actions required from the client (e.g. 301 "Moved Permanently", which often is accompanied by a header that tells the new location, which the client then can retrieve)
-4**: Error in the request or other issues (e.g. 401 "Not Authorized" and 404 "Not Found")
-5**: Error on the server e.g. 500 "Internal Server Error")
-```
+		```
+		1**: Information messages (e.g. 100 "Continue")
+		2**: Succesful events (e.g. 200 "OK")
+		3**: Additional actions required from the client (e.g. 301 "Moved Permanently", which often is accompanied by a header that tells the new location, which the client then can retrieve)
+		4**: Error in the request or other issues (e.g. 401 "Not Authorized" and 404 "Not Found")
+		5**: Error on the server e.g. 500 "Internal Server Error")
+		```
 * HTTP-protocol defines eight request methods, where the most commonly used ones are **GET** and **POST**.
 
-HTTP-protocol defines also other request types, some of which are the following ones:
-```
-DELETE: asks for removing of a resource
-HEAD: asks for the header information related to a resource, but not the resource itself (can be e.g. used for checking if an already downloaded resource has changed)
-OPTIONS: requests information about the possible options available regarding a request (e.g. could the resource be removed with a request)
-```
+		HTTP-protocol defines also other request types, some of which are the following ones:
+		```
+		DELETE: asks for removing of a resource
+		HEAD: asks for the header information related to a resource, but not the resource itself (can be e.g. used for checking if an already downloaded resource has changed)
+		OPTIONS: requests information about the possible options available regarding a request (e.g. could the resource be removed with a request)
+		```
 * HTTPS (HyperText Transfer Protocol Secure) is an extension to HTTP, which aims to make the requests secure.
 
 * Command-line tools that can be used to study whether a server responds to requests and to study the content  of requests (and responses).
 	- First, the ping command is used to study the response time of a service -- it is not really a tool for making HTTP requests, but a tool for checking whether an address responds to requests. It is used in conjunction with a server name (or an IP address).
 	- Client URL (cURL) is a program that can be used to make HTTP requests to servers. By default, curl is used to make a HTTP GET request to a server.
-		- If curl is used with the --verbose flag (or -v), the output contains also request and response details, including the headers. 
+		- If curl is used with the --verbose flag (or -v), the output contains also request and response details, including the headers.
 	- Use `Ctrl+Shift+I` to open "Developer tools".
-	 
+
 * Client-server model (or client-server architecture), which is at the core of all web applications. In client-server model, a server is responsible for hosting and providing resources and services to one or more clients.
 	- While servers share their resources, clients do not.
 	- Note that the a server can also act as a client.
- As an example, when a web server connects to a database server, the web server is a client, and the database server is the server.
+			As an example, when a web server connects to a database server, the web server is a client, and the database server is the server.
 
 * deno run --allow-net --watch <file.js>
-* deno fmt file.js 
+* deno fmt file.js
 * deno lint file.js
-  
+
 
 * **Routing** means mapping paths to functions.
 - A **route** is a mapping from a method-path -combination to a function.
@@ -64,10 +64,10 @@ OPTIONS: requests information about the possible options available regarding a r
 
 * Deno is not a framework. One good way of looking at Deno would be to think of it as a platform for software development.
 
-* It is also possible to define non-conventional (and non-existing) methods. This is done using the on method. 
-	- app.on("peek", "/", (c) => c.text("Nothing to see here."));	
+* It is also possible to define non-conventional (and non-existing) methods. This is done using the on method.
+	- app.on("peek", "/", (c) => c.text("Nothing to see here."));
 
-* The path and method of a request are also included in a req property of the context. 
+* The path and method of a request are also included in a req property of the context.
 	- `` app.get("*", (c) => c.text(`${c.req.method} ${c.req.path}`));``
 
 * Modern JavaScript features a ?? operator that can be used to simplify the above code. The ?? operator returns the value of the right-hand side if the left-hand side is null or undefined.
@@ -100,42 +100,38 @@ OPTIONS: requests information about the possible options available regarding a r
 
 * deno run --allow-net --unstable --watch
 
-```
-The get method is used for retrieving a value.
-It takes a list with a string as a parameter. The string is the key that is used. The following example outlines opening the key value store and retrieving the value for the key count.
+		```
+		The get method is used for retrieving a value.
+		It takes a list with a string as a parameter. The string is the key that is used. The following example outlines opening the key value store and retrieving the value for the key count.
 
-const kv = await Deno.openKv();
-const count = await kv.get(["count"]);
-The value returned by get is an object, which contains a property value that has the actual value stored into the key value database.
+		const kv = await Deno.openKv();
+		const count = await kv.get(["count"]);
+		The value returned by get is an object, which contains a property value that has the actual value stored into the key value database.
 
-In practice, however, it is possible that the value is not found. In this case, the value within the returned object is null. Falling for a default value -- say 0 -- can be done with the ?? operator.
+		In practice, however, it is possible that the value is not found. In this case, the value within the returned object is null. Falling for a default value -- say 0 -- can be done with the ?? operator.
 
-const kv = await Deno.openKv();
-const count = await kv.get(["count"]);
-let value = count.value ?? 0;
-console.log(value);
-```
+		const kv = await Deno.openKv();
+		const count = await kv.get(["count"]);
+		let value = count.value ?? 0;
+		console.log(value);
+		```
+* The set method is used for setting a value. It takes two parameters: (1) a list containing a string that indicates the name of the key, and (2) the value that is to be stored. The following example outlines opening the key value store and setting the value 0 for the key count.
+		const kv = await Deno.openKv();
+		await kv.set(["count"], 0);
+		If the key-value storage already contains a value for the given key pair, the value will be overridden with the new value.
 
-```
-The set method is used for setting a value. It takes two parameters: (1) a list containing a string that indicates the name of the key, and (2) the value that is to be stored. The following example outlines opening the key value store and setting the value 0 for the key count.
+		```
+		Deleting a value
+		The delete method is used for deleting a value. Similar to get, it takes a list with a string as a parameter, where the string is the key. The following example outlines the use of the delete method. The example would remove the value for the key count.
 
-const kv = await Deno.openKv();
-await kv.set(["count"], 0);
-If the key-value storage already contains a value for the given key pair, the value will be overridden with the new value.
-```
-
-```
-Deleting a value
-The delete method is used for deleting a value. Similar to get, it takes a list with a string as a parameter, where the string is the key. The following example outlines the use of the delete method. The example would remove the value for the key count.
-
-const kv = await Deno.openKv();
-await kv.delete(["count"]);
-```
+		const kv = await Deno.openKv();
+		await kv.delete(["count"]);
+		```
 
 ### Architecture: Layered Architecture
-* The term layered architecture refers to organizing code into layers that each have their own responsibility within the application. 
+* The term layered architecture refers to organizing code into layers that each have their own responsibility within the application.
 
-* The term layer refers to a group of related functionality that is separated from other functionality in the application. 
+* The term layer refers to a group of related functionality that is separated from other functionality in the application.
 
 * The term architecture refers to the overall structure of the application
 
@@ -146,17 +142,17 @@ await kv.delete(["count"]);
 
 * deno run --allow-net --allow-read --watch app.js
 
-* The nullish coalescing operator **??** : returns the value on the left-hand side of the operator if the value is not null or undefined, and the value on the right-hand side of the operator if the value on the left-hand side is null or undefined. 
+* The nullish coalescing operator **??** : returns the value on the left-hand side of the operator if the value is not null or undefined, and the value on the right-hand side of the operator if the value on the left-hand side is null or undefined.
 	- Email address: <%= it.email ?? "Unknown" %\>!
 
 #### Forms and data
 
-* The form element form has two attributes: method and action. The method describes the used HTTP method (either POST or GET), while the action describes the path to which the data is sent. If the method attribute is missing, GET is used by default. Similarly, if the action attribute is missing, the current address and path is used by default.
-	
+* The form element form has two attributes: **method and action**. The method describes the used HTTP method (either POST or GET), while the action describes the path to which the data is sent. If the method attribute is missing, GET is used by default. Similarly, if the action attribute is missing, the current address and path is used by default.
+
  * Input elements are created using the input element. The input element has a number of attributes, of which the most important ones are type, id, and name. The type attribute describes the type of the input field, while the id and name attributes are used for identifying the input field. The id attribute is used for referring to the input field from other elements, while the name attribute is used for identifying the input field when the form is submitted.
 
-* The label element is used for referring to an input field within the form and for adding a textual description for the input field. The attribute for of the label element tells which input field the label refers to. The value for the attribute for should be the same as the value of the id attribute of the input field that the label refers to. 
- 
+* The label element is used for referring to an input field within the form and for adding a textual description for the input field. The attribute for of the label element tells which input field the label refers to. The value for the attribute for should be the same as the value of the id attribute of the input field that the label refers to.
+
 * a form can contain multiple input fields. The type of the input field can be controlled using the type attribute. There are over 20 different input types:
 	- email
 	- text
@@ -164,14 +160,53 @@ await kv.delete(["count"]);
 	- checkbox
 	- date
 	- number
-	- url 
+	- url
+
+* As the form is sent using a POST request to the path /addresses, let's implement functionality to read the form data from the request for that method and path. To read form data in Hono, we use the asynchronous **parseBody** method that is provided by the req attribute of the context. The parseBody method returns a promise that resolves into an object that contains the form data.
 
 
+```
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello forms!</title>
+</head>
+<body>
+<form method="POST" action="/addresses">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" /><br/>
+<label for="address">Address:</label>
+<input type="text" id="address" name="address" /><br/>
+<input type="submit" value="Submit form" />
+</form>
+<% if (it?.name && it?.address) { %>
+<p>Submitted name: <%= it.name %>, address <%= it.address %></p>
+<% } %>
+</body>
+</html>
 
+* put this **return c.html(eta.render("index.eta", body));** in the app.js.
+```
+* we can send data from curl: **curl -X POST -d name="My Name" -d address="My Address" localhost:8000/addresses**
 
+* this is too is possible: **curl -X POST -d "name=My+Another+Name&address=My+Another+Address" localhost:8000/addresses** "+" for space and "&" for sparate submitted form elements.
 
+``` 
+* store data from form: 
 
+let data = {};
 
+ app.get("/", (c) => c.html(eta.render("index.eta", data)));
+ app.post("/addresses", async (c) => {
+   const body = await c.req.parseBody();
+     data = body;
+       return c.html(eta.render("index.eta", data));
+       });
+
+* With these changes, any data we submit to the server will be available in the subsequent requests, until the server is restarted or new data is sent to the server. I			 
+```
+
+* 
 
 
 
