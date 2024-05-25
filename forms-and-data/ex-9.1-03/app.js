@@ -15,9 +15,9 @@ app.get("/", (c) => {
   return c.html(eta.render("index.eta"));
 });
 app.post("/", async (c) => {
-  const body = await c.req.parseBody();
-  console.log(`${body.name} lives at ${body.address}.`);
-  //return c.text("OK");
+      const body = await c.req.parseBody();
+      let result = `${body.name} lives at ${body.address}.`
+      return c.text(result);
 });
 
 Deno.serve(app.fetch);
